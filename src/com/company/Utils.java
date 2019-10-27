@@ -1,33 +1,54 @@
+/*
+ *Данный пакет выполняет задание 8.3.
+ *
+ * версия 2.0 - 27.10.2019
+ *
+ * Автор Тимофей
+ */
 package com.company;
+import java.util.Random;
 
+/**
+ * Utils - предоставляет различные методы.
+ *
+ *@version  V 2.0  -  27.10.2019
+ *@author  Timofey Kalinin
+ */
 public class Utils {
 
-    public void create(Box K1, Object O1){                  //положить в коробку объект
-        K1.in(O1);
+    /**
+     * выполняет метод - Положить объект в коробку.
+     * @param k1 - выбирает коробку.
+     * @param o1 - выбирает объект.
+     */
+    public void create(final Box k1, final Object o1) {
+        k1.in(o1);
     }
 
-    public void random (Object O1, Object O2, Object O3){   //вернуть любой из 3 объектов
+    /**
+     * Выполняет метод - возврат рандомного объекта.
+     * @param o1 - первый объект.
+     * @param o2 - второй объект.
+     * @param o3 - третий объект.
+     */
+    public void random(final Object o1, final Object o2, final Object o3) {
         final int max = 3;
-        final int rnd1 = rnd(max);
+        Random rnd = new Random();
+        final int rnd1 = rnd.nextInt(max);
 
-        switch (rnd1){
+        switch (rnd1) {
             case 0:
-                System.out.println(O1);
+                System.out.println(o1);
                 break;
             case 1:
-                System.out.println(O2);
+                System.out.println(o2);
                 break;
             case 2:
-                System.out.println(O3);
+                System.out.println(o3);
                 break;
             default:
                 System.out.println("Error");
                 break;
         }
     }
-
-    public static int rnd (int max){
-        return (int) (Math.random() *max);
-    }
-
 }
